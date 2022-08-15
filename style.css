@@ -333,11 +333,15 @@ p{
 
     .down-menu{
         transition: 0.5s;
-        transform: translate(0px, 150px);
+        transform: translate(0px, 200px);
     }
     
     .up-menu{
         transition: 0.5s;
         transform: translate(0px, 0px);
+    }
+
+    .menu{
+        margin-bottom: 60px;
     }
 }
