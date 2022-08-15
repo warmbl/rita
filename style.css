@@ -330,4 +330,14 @@ p{
     #down:active{
         filter: brightness(120%);
     }
+
+    .down-menu{
+        transition: 0.5s;
+        transform: translate(0px, 200px);
+    }
+    
+    .up-menu{
+        transition: 0.5s;
+        transform: translate(0px, 0px);
+    }
 }
