@@ -29,66 +29,82 @@ class Iterator {
         return this.collection[this.index];
     }
 }
+let model = [];
+let hair = [];
+let clother = [];
+let decorations = [];
+
+function preloader() {
+    for (let i = 0; i < pre_model_massive.length; i++) {
+        model[i] = new Image();
+        model[i].src = pre_model_massive[i];
+    }
+    for (let i = 0; i < pre_rita_hair_massive.length; i++) {
+        hair[i] = new Image();
+        hair[i].src = pre_rita_hair_massive[i];
+    }
+    for (let i = 0; i < pre_rita_clother_massive.length; i++) {
+        clother[i] = new Image();
+        clother[i].src = pre_rita_clother_massive[i];
+    }
+    for (let i = 0; i < pre_rita_decorations_massive.length; i++) {
+        decorations[i] = new Image();
+        decorations[i].src = pre_rita_decorations_massive[i];
+    }
+}
+preloader();
 
 const model_massive = [
     {
         id: 10,
         name: 'Рита без макияжа',
-        body: './model/rita/rita.png',
+        body: model[0],
         body_type: 1,
     }, 
     {
         id: 10,
         name: 'Рита c красными губами',
-        body: './model/rita/rita_makeup_1.png',
+        body: model[1],
         body_type: 1,
     },
-    /*
-    {
-        id: 10,
-        name: 'Ира',
-        body: './model/ira/ira.png',
-        body_type: 1,
-    },
-    */
 ];
 
 const rita_hair_massive = [
     {
         name: 'Волосы 1',
-        path: './model/rita/hair/hair_1.png'   
+        path: hair[0]
     },
     {
         name: 'Волосы 2',
-        path: './model/rita/hair/hair_2.png'   
+        path: hair[1]   
     },
     {
         name: 'Волосы 3',
-        path: './model/rita/hair/hair_3.png'   
+        path: hair[2]   
     },
     {
         name: 'Волосы 4',
-        path: './model/rita/hair/hair_4.png'   
+        path: hair[3]
     },
     {
         name: 'Волосы 5',
-        path: './model/rita/hair/5.png'   
+        path: hair[4] 
     },
     {
         name: 'Волосы 6',
-        path: './model/rita/hair/6.png'   
+        path: hair[5] 
     },
     {
         name: 'Волосы 7',
-        path: './model/rita/hair/7.png'   
+        path: hair[6] 
     },
     {
         name: 'Волосы 8',
-        path: './model/rita/hair/8.png'   
+        path: hair[7] 
     },
     {
         name: 'Волосы 9',
-        path: './model/rita/hair/9.png'   
+        path: hair[8] 
     },
 
 ];
@@ -96,27 +112,27 @@ const rita_hair_massive = [
 const rita_clother_massive = [
     {
         name: 'Одежда 1',
-        path: './body/thin_body/clother/clother_1.png'   
+        path: clother[0]
     },
     {
         name: 'Одежда 2',
-        path: './body/thin_body/clother/2.png'   
+        path: clother[1] 
     },
     {
         name: 'Одежда 3',
-        path: './body/thin_body/clother/3.png'   
+        path: clother[2]
     },
     {
         name: 'Одежда 4',
-        path: './body/thin_body/clother/4.png'   
+        path: clother[3]
     },
     {
         name: 'Пижама',
-        path: './body/thin_body/clother/5.png'   
+        path: clother[4]
     },
     {
         name: 'Одежда 6',
-        path: './body/thin_body/clother/6.png'   
+        path: clother[5]
     },
 
 ];
@@ -124,19 +140,19 @@ const rita_clother_massive = [
 const rita_decorations_massive = [
     {
         name: 'Без украшений',
-        path: './body/thin_body/decorations/1.png'   
+        path: decorations[0] 
     },
     {
         name: 'Тату',
-        path: './body/thin_body/decorations/2.png'   
+        path: decorations[1]
     },
     {
         name: 'Голубые линзы',
-        path: './body/thin_body/decorations/3.png'   
+        path: decorations[2]
     },
     {
         name: 'Зеленые линзы',
-        path: './body/thin_body/decorations/4.png'   
+        path: decorations[3]
     },
 ];
 
@@ -148,10 +164,11 @@ const iteratorDecorations = new Iterator(rita_decorations_massive);
 
 document.getElementById('name_model').innerHTML = model_massive[0].name;
 
-document.getElementById('image_model').src = model_massive[0].body;
-document.getElementById('image_hair').src = rita_hair_massive[0].path;
-document.getElementById('image_clother').src = rita_clother_massive[0].path;
-document.getElementById('image_decorations').src = rita_decorations_massive[0].path;
+// Первые картинки при загрузке страницы
+document.getElementById('image_model').appendChild(model_massive[0].body);
+document.getElementById('image_hair').appendChild(rita_hair_massive[0].path);
+document.getElementById('image_clother').appendChild(rita_clother_massive[0].path);
+document.getElementById('image_decorations').appendChild(rita_decorations_massive[0].path);
 
 const character_container = document.querySelector('.character-container');
 
@@ -160,9 +177,11 @@ function prevBody() {
     character_container.classList.add('scroll-left');
 
     setTimeout(() => {
-        const name_x = iteratorBody.prev();
-        document.getElementById('name_model').innerHTML = name_x.name;
-        document.getElementById('image_model').src = name_x.body;
+        const del = document.getElementById('image_model');
+        del.innerHTML = '';
+        const nextName = iteratorBody.prev();
+        document.getElementById('name_model').innerHTML = nextName.name;
+        document.getElementById('image_model').appendChild(nextName.body);
 
         character_container.classList.remove('scroll-left');
         character_container.classList.add('scroll-left-2');
@@ -176,9 +195,11 @@ function nextBody() {
     character_container.classList.add('scroll-right');
 
     setTimeout(() => {
-        const name_y = iteratorBody.next();
-        document.getElementById('name_model').innerHTML = name_y.name;
-        document.getElementById('image_model').src = name_y.body;
+        const del = document.getElementById('image_model');
+        del.innerHTML = '';
+        const nextName = iteratorBody.next();
+        document.getElementById('name_model').innerHTML = nextName.name;
+        document.getElementById('image_model').appendChild(nextName.body);
 
         character_container.classList.remove('scroll-right');
         character_container.classList.add('scroll-right-2');
@@ -193,9 +214,11 @@ function prevHair() {
     character_container.classList.add('scroll-left');
 
     setTimeout(() => {
-        const name_x = iteratorHair.prev();
-        document.getElementById('name_model').innerHTML = name_x.name;
-        document.getElementById('image_hair').src = name_x.path;
+        const del = document.getElementById('image_hair');
+        del.innerHTML = '';
+        const nextName = iteratorHair.prev();
+        document.getElementById('name_model').innerHTML = nextName.name;
+        document.getElementById('image_hair').appendChild(nextName.path);
 
         character_container.classList.remove('scroll-left');
         character_container.classList.add('scroll-left-2');
@@ -209,9 +232,11 @@ function nextHair() {
     character_container.classList.add('scroll-right');
 
     setTimeout(() => {
-        const name_y = iteratorHair.next();
-        document.getElementById('name_model').innerHTML = name_y.name;
-        document.getElementById('image_hair').src = name_y.path;
+        const del = document.getElementById('image_hair');
+        del.innerHTML = '';
+        const nextName = iteratorHair.next();
+        document.getElementById('name_model').innerHTML = nextName.name;
+        document.getElementById('image_hair').appendChild(nextName.path);
         character_container.classList.remove('scroll-right');
         character_container.classList.add('scroll-right-2');
     }, 100);
@@ -225,9 +250,11 @@ function prevClother() {
     character_container.classList.add('scroll-left');
 
     setTimeout(() => {
-        const name_x = iteratorClother.prev();
-        document.getElementById('name_model').innerHTML = name_x.name;
-        document.getElementById('image_clother').src = name_x.path;
+        const del = document.getElementById('image_clother');
+        del.innerHTML = '';
+        const nextName = iteratorClother.prev();
+        document.getElementById('name_model').innerHTML = nextName.name;
+        document.getElementById('image_clother').appendChild(nextName.path);
 
         character_container.classList.remove('scroll-left');
         character_container.classList.add('scroll-left-2');
@@ -241,9 +268,11 @@ function nextClother() {
     character_container.classList.add('scroll-right');
 
     setTimeout(() => {
-        const name_y = iteratorClother.next();
-        document.getElementById('name_model').innerHTML = name_y.name;
-        document.getElementById('image_clother').src = name_y.path;
+        const del = document.getElementById('image_clother');
+        del.innerHTML = '';
+        const nextName = iteratorClother.next();
+        document.getElementById('name_model').innerHTML = nextName.name;
+        document.getElementById('image_clother').appendChild(nextName.path);
         character_container.classList.remove('scroll-right');
         character_container.classList.add('scroll-right-2');
     }, 100);
@@ -257,9 +286,11 @@ function prevDecorations() {
     character_container.classList.add('scroll-left');
 
     setTimeout(() => {
-        const name_x = iteratorDecorations.prev();
-        document.getElementById('name_model').innerHTML = name_x.name;
-        document.getElementById('image_decorations').src = name_x.path;
+        const del = document.getElementById('image_decorations');
+        del.innerHTML = '';
+        const nextName = iteratorDecorations.prev();
+        document.getElementById('name_model').innerHTML = nextName.name;
+        document.getElementById('image_decorations').appendChild(nextName.path);
 
         character_container.classList.remove('scroll-left');
         character_container.classList.add('scroll-left-2');
@@ -273,9 +304,11 @@ function nextDecorations() {
     character_container.classList.add('scroll-right');
 
     setTimeout(() => {
-        const name_y = iteratorDecorations.next();
-        document.getElementById('name_model').innerHTML = name_y.name;
-        document.getElementById('image_decorations').src = name_y.path;
+        const del = document.getElementById('image_decorations');
+        del.innerHTML = '';
+        const nextName = iteratorDecorations.next();
+        document.getElementById('name_model').innerHTML = nextName.name;
+        document.getElementById('image_decorations').appendChild(nextName.path);
         character_container.classList.remove('scroll-right');
         character_container.classList.add('scroll-right-2');
     }, 100);
