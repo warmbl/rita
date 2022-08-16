@@ -30,6 +30,34 @@ body{
     justify-content: center;
     position: relative;
 }
+.sound-button{
+    position: absolute;
+    height: 35px;
+    background-color: rgb(0, 0, 0, 0);
+    border: none;
+    opacity: 50%;
+    margin-top: 30px;
+    margin-left: calc(100vw/2 + 100px);
+}
+.sound-button:active{
+    border: none;
+}
+.back-redact{
+    position: absolute;
+    height: 50px;
+    background-color: rgb(0, 0, 0, 0);
+    border: none;
+
+    margin-top: 20px;
+    margin-right: calc(100vw/2 + 100px);
+
+    visibility: hidden;
+    transition: 1s;
+}
+.back-redact:active{
+    border: none;
+}
+
 .character-container{
     display: flex;
     flex-direction: row;
@@ -121,7 +149,23 @@ img{
     flex-direction: column;
     align-items: center;
     width: 100%;
+}
 
+.disappear{
+    transition: 1s;
+    margin-top: 70px;
+}
+
+.vis-1{
+    opacity: 0;
+    transition: 1s;
+    visibility: hidden;
+}
+
+.vis-2{
+    opacity: 1;
+    transition: 1s;
+    visibility: visible;
 }
 
 #menu{
@@ -139,6 +183,7 @@ img{
 #down:active{
     filter: brightness(120%);
     margin-top: 2px;
+    border: none;
 }
 
 .top-block{
@@ -250,6 +295,7 @@ p{
     height: 94%;
     filter: brightness(200%);
     margin-top: 2px;
+    border: none;
 }
 
 .text-name{
@@ -290,7 +336,44 @@ p{
 
 .iterator-buttons:active{
     width: 14.54px;
+    border: none;
+}
 
+#light{
+    animation: light-animation 2s infinite linear;
+}
+
+@keyframes light-animation {
+    0% {
+        opacity: 100%;
+    }
+    30% {
+        opacity: 85%;
+    }
+    35%{
+        opacity: 80%;
+    }
+    45%{
+        opacity: 95%;
+    }
+    50%{
+        opacity: 90%;
+    }
+    60% {
+        opacity: 100%;
+    }
+    70% {
+        opacity: 90%;
+    }
+    80% {
+        opacity: 100%;
+    }
+    85% {
+        opacity: 85%;
+    }
+    100% {
+        opacity: 100%;
+    }
 }
 
 @media (max-aspect-ratio: 3/2) {

@@ -374,25 +374,98 @@ el_4.addEventListener('click', () => {
 
     decorationsItrFunc();
 })
+
 // Скрыть/открыть меню
+const navigation_menu = document.querySelector('.navigation');
 function menuDownUp(){
     if(menuPosition == 0){
         menu.classList.remove('up-menu');
         menu.classList.add('down-menu');
         down.src = './menu_elements/up.png';
         menuPosition = 1;
+
+        navigation_menu.classList.add('disappear');
     }
     else if (menuPosition == 1){
         menu.classList.remove('down-menu');
         menu.classList.add('up-menu');
         down.src = './menu_elements/down.png';
         menuPosition = 0;
+
+        navigation_menu.classList.remove('disappear');
     }
 }
 down.addEventListener('click', menuDownUp);
 
+// Кнопка Готово
+const ready = document.getElementById('text-done');
+const all_menu = document.querySelector('.menu');
+const back_redact = document.querySelector('.back-redact');
+let back_block = true;
+let block = false;
+ready.addEventListener('click', ()=>{
+    if(!block){
+        all_menu.classList.remove('vis-2');
+        all_menu.classList.add('vis-1');
+        back_block = false;
+        window.addEventListener('click', controlBack);
+        block = true;
+    }
+    else return;
+})
+
+back_redact.addEventListener('click', ()=>{
+    if(block){
+        all_menu.classList.remove('vis-1');
+        all_menu.classList.add('vis-2');
+        block = false;
+        back_block = true;
+
+        back_redact.classList.remove('vis-2');
+        back_redact.classList.add('vis-1');
+    }
+    else return;
+
+    window.removeEventListener('click', controlBack);
+})
+
+function controlBack(){
+    if(!back_block){
+        //console.log('всё скрыто');
+        back_redact.classList.remove('vis-2');
+        sound.classList.remove('vis-2');
+
+        back_redact.classList.add('vis-1');
+        sound.classList.add('vis-1');
+
+        back_block = true;
+    }
+    else if (back_block){
+        //console.log('теперь не скрыто');
+        back_redact.classList.remove('vis-1');
+        sound.classList.remove('vis-1');
+        
+        back_redact.classList.add('vis-2');
+        sound.classList.add('vis-2');
+        back_block = false;
+    }
+}
+
+
 // Музыка
-const audio = document.getElementById('audio');
-window.addEventListener("click", (event) => {
-    audio.play();
-});
+const sound = document.querySelector('.sound-button');
+let sound_icon = document.getElementById('sound-icon');
+let soundPosition = 0;
+sound.addEventListener('click', () =>{
+    if (soundPosition == 0){
+        audio.play();
+        soundPosition = 1;
+        sound_icon.src = './menu_elements/on.png';
+    }
+    else if (soundPosition == 1){
+        audio.pause();
+        soundPosition = 0;
+        sound_icon.src = './menu_elements/off.png';
+    }
+    
+})
