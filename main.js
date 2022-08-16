@@ -1,34 +1,3 @@
-const audio = document.getElementById('audio');
-window.addEventListener("click", (event) => {
-    audio.play();
-});
-
-class Iterator {
-    constructor(collection) {
-        this.collection = collection;
-        this.index = 0;
-    }
-
-    prev() {
-        if (this.index <= 0)
-            this.index = this.collection.length - 1;
-        else
-            this.index--;
-        return this.getItem();
-    }
-
-    next() {
-        if (this.index >= this.collection.length - 1)
-            this.index = 0;
-        else
-            this.index++;
-        return this.getItem();
-    }
-
-    getItem() {
-        return this.collection[this.index];
-    }
-}
 let model = [];
 let hair = [];
 let clother = [];
@@ -54,118 +23,47 @@ function preloader() {
 }
 preloader();
 
+//////////// ARRAYS //////////////////////////////////////
 const model_massive = [
-    {
-        id: 10,
-        name: 'Рита без макияжа',
-        body: model[0],
-        body_type: 1,
-    }, 
-    {
-        id: 10,
-        name: 'Рита c красными губами',
-        body: model[1],
-        body_type: 1,
-    },
+    {name: 'Рита без макияжа', path: model[0]}, 
+    {name: 'Рита c красными губами', path: model[1]},
 ];
-
 const rita_hair_massive = [
-    {
-        name: 'Волосы 1',
-        path: hair[0]
-    },
-    {
-        name: 'Волосы 2',
-        path: hair[1]   
-    },
-    {
-        name: 'Волосы 3',
-        path: hair[2]   
-    },
-    {
-        name: 'Волосы 4',
-        path: hair[3]
-    },
-    {
-        name: 'Волосы 5',
-        path: hair[4] 
-    },
-    {
-        name: 'Волосы 6',
-        path: hair[5] 
-    },
-    {
-        name: 'Волосы 7',
-        path: hair[6] 
-    },
-    {
-        name: 'Волосы 8',
-        path: hair[7] 
-    },
-    {
-        name: 'Волосы 9',
-        path: hair[8] 
-    },
-
+    {name: 'Белые',path: hair[0]},
+    {name: 'Блонд',path: hair[1]},
+    {name: 'Розовые',path: hair[2]},
+    {name: 'Пепельные',path: hair[3]},
+    {name: 'Две рогульки',path: hair[4]},
+    {name: 'Круэлла',path: hair[5]},
+    {name: 'Крупные кудри',path: hair[6]},
+    {name: 'Собранные волосы',path: hair[7]},
+    {name: 'Коса',path: hair[8]},
 ];
-
 const rita_clother_massive = [
-    {
-        name: 'Одежда 1',
-        path: clother[0]
-    },
-    {
-        name: 'Одежда 2',
-        path: clother[1] 
-    },
-    {
-        name: 'Одежда 3',
-        path: clother[2]
-    },
-    {
-        name: 'Одежда 4',
-        path: clother[3]
-    },
-    {
-        name: 'Пижама',
-        path: clother[4]
-    },
-    {
-        name: 'Одежда 6',
-        path: clother[5]
-    },
-
+    {name: 'Сорочка',path: clother[0]},
+    {name: 'Простой',path: clother[1]},
+    {name: 'Элегантный',path: clother[2]},
+    {name: 'Глория',path: clother[3]},
+    {name: 'Пижама',path: clother[4]},
+    {name: 'Повседневная одежда',path: clother[5]},
 ];
-
 const rita_decorations_massive = [
-    {
-        name: 'Без украшений',
-        path: decorations[0] 
-    },
-    {
-        name: 'Тату',
-        path: decorations[1]
-    },
-    {
-        name: 'Голубые линзы',
-        path: decorations[2]
-    },
-    {
-        name: 'Зеленые линзы',
-        path: decorations[3]
-    },
+    {name: 'Без украшений', path: decorations[0]},
+    {name: 'Тату',path: decorations[1]},
+    {name: 'Голубые линзы',path: decorations[2]},
+    {name: 'Зеленые линзы', path: decorations[3]},
 ];
 
+// Инициализация итераторов
 const iteratorBody = new Iterator(model_massive);
 const iteratorHair = new Iterator(rita_hair_massive);
 const iteratorClother = new Iterator(rita_clother_massive);
 const iteratorDecorations = new Iterator(rita_decorations_massive);
 
-
 document.getElementById('name_model').innerHTML = model_massive[0].name;
 
 // Первые картинки при загрузке страницы
-document.getElementById('image_model').appendChild(model_massive[0].body);
+document.getElementById('image_model').appendChild(model_massive[0].path);
 document.getElementById('image_hair').appendChild(rita_hair_massive[0].path);
 document.getElementById('image_clother').appendChild(rita_clother_massive[0].path);
 document.getElementById('image_decorations').appendChild(rita_decorations_massive[0].path);
@@ -181,7 +79,7 @@ function prevBody() {
         del.innerHTML = '';
         const nextName = iteratorBody.prev();
         document.getElementById('name_model').innerHTML = nextName.name;
-        document.getElementById('image_model').appendChild(nextName.body);
+        document.getElementById('image_model').appendChild(nextName.path);
 
         character_container.classList.remove('scroll-left');
         character_container.classList.add('scroll-left-2');
@@ -199,7 +97,7 @@ function nextBody() {
         del.innerHTML = '';
         const nextName = iteratorBody.next();
         document.getElementById('name_model').innerHTML = nextName.name;
-        document.getElementById('image_model').appendChild(nextName.body);
+        document.getElementById('image_model').appendChild(nextName.path);
 
         character_container.classList.remove('scroll-right');
         character_container.classList.add('scroll-right-2');
@@ -317,7 +215,7 @@ function nextDecorations() {
     }, 500);
 }
 
-// Iteratiors /////////////////////////////////////////////////////////////
+// Iterators /////////////////////////////////////////////////////////////
 let bodyItrFunc = () => {
     const prev = document.getElementById('prev');
     prev.removeEventListener('click', prevHair);
@@ -375,7 +273,6 @@ let decorationsItrFunc = () => {
 }
 
 // MAIN /////////////////////////////////////////////////////////////////////
-
 const el_1 = document.getElementById('el-1');
 const el_2 = document.getElementById('el-2');
 const el_3 = document.getElementById('el-3');
@@ -390,6 +287,7 @@ let menuPosition = 0;
 
 bodyItrFunc();
 
+// Настройки тела
 el_1.addEventListener('click', () => {
     current_title = iteratorBody.getItem().name;
     document.getElementById('name_model').innerHTML = current_title;
@@ -399,7 +297,7 @@ el_1.addEventListener('click', () => {
 
     bodyItrFunc();
 }) 
-
+// Настройки прически
 el_2.addEventListener('click', () => {
     current_title = iteratorHair.getItem().name;
     document.getElementById('name_model').innerHTML = current_title;
@@ -409,7 +307,7 @@ el_2.addEventListener('click', () => {
 
     hairItrFunc();
 }) 
-
+// Настройки одежды
 el_3.addEventListener('click', () => {
     current_title = iteratorClother.getItem().name;
     document.getElementById('name_model').innerHTML = current_title;
@@ -419,7 +317,7 @@ el_3.addEventListener('click', () => {
 
     clotherItrFunc();
 }) 
-
+// Настройки украшений
 el_4.addEventListener('click', () => {
     current_title = iteratorDecorations.getItem().name;
     document.getElementById('name_model').innerHTML = current_title;
@@ -429,7 +327,7 @@ el_4.addEventListener('click', () => {
 
     decorationsItrFunc();
 })
-
+// Скрыть/открыть меню
 function menuDownUp(){
     if(menuPosition == 0){
         menu.classList.remove('up-menu');
@@ -444,5 +342,10 @@ function menuDownUp(){
         menuPosition = 0;
     }
 }
-
 down.addEventListener('click', menuDownUp);
+
+// Музыка
+const audio = document.getElementById('audio');
+window.addEventListener("click", (event) => {
+    audio.play();
+});

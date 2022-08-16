@@ -3,7 +3,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 html{
     overflow: hidden;
     width: 100%;
@@ -13,6 +12,7 @@ body{
     width: 100%;
     height: 100%;
 }
+
 .container{
     width: 100vw;
     height: 100vh;
@@ -21,7 +21,6 @@ body{
     background-color: black;
     overflow: hidden;
 }
-
 .model-container{
     background-color: rgb(42, 35, 35);
     height: 100vh;
@@ -31,9 +30,6 @@ body{
     justify-content: center;
     position: relative;
 }
-
-
-
 .character-container{
     display: flex;
     flex-direction: row;
@@ -42,25 +38,21 @@ body{
     width: auto;
     height: 100vh;
 }
-
 .contentt{
     position: absolute;
     width: auto;
     height: 100%;
 }
-
 img{
     height: 100%;
     object-fit: contain;
 }
-
 .scroll-left{
     transform: translate(-10px, 10px);
     transition: 0.1s;
     opacity: 0;
     transform: opacity 1s;
 }
-
 .scroll-left-2{
     animation-duration: 0.4s;
     animation-name: slidein-left;
@@ -78,14 +70,12 @@ img{
     }
 }
 
-/* ГОТОВЫЙ КОД*/
 .scroll-right{
     transform: translate(10px, 10px);
     transition: 0.1s;
     opacity: 0;
     transform: opacity 1s;
 }
-
 .scroll-right-2{
     animation-duration: 0.4s;
     animation-name: slidein-right;
@@ -120,7 +110,6 @@ img{
     transition: 0.5s;
     transform: translate(0px, 240px);
 }
-
 .up-menu{
     transition: 0.5s;
     transform: translate(0px, 0px);
@@ -144,11 +133,9 @@ img{
     width: 55px;
     height: auto;
 }
-
 #down:hover{
     filter: brightness(120%);
 }
-
 #down:active{
     filter: brightness(120%);
     margin-top: 2px;
@@ -197,16 +184,13 @@ img{
     width: 25%;
     border-top-left-radius: 17px;
 }
-
 #el-2{
     height: 100%;
-    width: 25%;
-    
+    width: 25%; 
 }
 #el-3{
     height: 100%;
-    width: 25%;
-    
+    width: 25%; 
 }
 #el-4{
     height: 100%;
@@ -231,7 +215,6 @@ img{
     margin-left: 20px;
     margin-bottom: 8px;
 }
-
 .icons:hover{
     opacity: 100%;
 }
@@ -283,11 +266,9 @@ p{
     background-color: rgba(28,28,28,0);
     border: 0;
 }
-
 .button-done:hover{
     filter: brightness(130%);
 }
-
 .button-done:active{
     margin-top: 2px;
     filter: brightness(130%);
@@ -300,7 +281,6 @@ p{
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
 
 .iterator-buttons{
     height: 50%;
@@ -339,7 +319,6 @@ p{
         transition: 0.5s;
         transform: translate(0px, 220px);
     }
-    
     .up-menu{
         transition: 0.5s;
         transform: translate(0px, 0px);
