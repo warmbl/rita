@@ -1,0 +1,53 @@
+html{
+    background-color: rgb(106, 76, 113);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    /*background-color: beige;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    width: 50vw;
+    height: 70vh;
+
+    margin-top: 10%;
+}
+
+.elem{
+    position: relative;
+    text-align: center;
+    height: 10%;
+    border-radius: 30px;
+    background-color: rgba(28,28,28,0);
+    border: 0;
+
+    margin-top: 20px;
+}
+.elem:hover{
+    filter: brightness(130%);
+}
+.elem:active{
+    filter: brightness(100%);
+    border: none;
+}
+
+.done{
+    height: 100%;
+}
+
+.text-done{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+p{
+    color: rgb(218, 221, 191);
+    font-family: Arial, Helvetica, sans-serif;
+}
