@@ -51,10 +51,10 @@ const rita_clother_massive = [
     {name: 'Худи',path: clother[0]},
     {name: 'Одежда 2',path: clother[1]},
     {name: 'Одежда 3',path: clother[2]},
-    {name: 'Одежда 4',path: clother[2]},
-    {name: 'Одежда 5',path: clother[2]},
-    {name: 'Одежда 6',path: clother[2]},
-    {name: 'Одежда 7',path: clother[2]},
+    {name: 'Одежда 4',path: clother[3]},
+    {name: 'Одежда 5',path: clother[4]},
+    {name: 'Одежда 6',path: clother[5]},
+    {name: 'Одежда 7',path: clother[6]},
 ];
 const rita_decorations_massive = [
     {name: 'Без украшений', path: decorations[0]},
