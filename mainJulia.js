@@ -42,6 +42,8 @@ const rita_clother_massive = [
     {name: 'Длинная юбка',path: clother[1]},
     {name: 'Черный костюм',path: clother[2]},
     {name: 'Желтый пиджак',path: clother[3]},
+    {name: 'Черное платье',path: clother[4]},
+    {name: 'Джинсовый костюм',path: clother[5]},
 ];
 const rita_decorations_massive = [
     {name: 'Без украшений', path: decorations[0]},

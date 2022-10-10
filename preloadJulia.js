@@ -17,6 +17,8 @@ const pre_rita_clother_massive = [
     './model/julia/clother/2.png',
     './model/julia/clother/3.png',
     './model/julia/clother/4.png',
+    './model/julia/clother/5.png',
+    './model/julia/clother/6.png',
 ];
 const pre_rita_decorations_massive = [
     './model/rita/decorations/1.png',
