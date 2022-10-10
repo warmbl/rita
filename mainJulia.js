@@ -25,16 +25,23 @@ preloader();
 
 //////////// ARRAYS //////////////////////////////////////
 const model_massive = [
-    {name: 'Юля', path: model[0]}, 
-    {name: 'Юля с макияжем', path: model[1]},
-    {name: 'Юля с макияжем 2', path: model[2]},
+    {name: 'Без макияжа', path: model[0]}, 
+    {name: 'Легкий макияж', path: model[1]},
+    {name: 'Яркий макияж', path: model[2]},
 ];
 const rita_hair_massive = [
     {name: 'Русые',path: hair[0]},
+    {name: 'Две косы',path: hair[1]},
+    {name: 'Одна коса',path: hair[2]},
+    {name: 'Белые',path: hair[3]},
+    {name: 'Кудрявые',path: hair[4]},
+    {name: 'С косичками',path: hair[5]},
 ];
 const rita_clother_massive = [
-    {name: '1',path: clother[0]},
-    {name: '2',path: clother[1]},
+    {name: 'Базовый костюм',path: clother[0]},
+    {name: 'Длинная юбка',path: clother[1]},
+    {name: 'Черный костюм',path: clother[2]},
+    {name: 'Желтый пиджак',path: clother[3]},
 ];
 const rita_decorations_massive = [
     {name: 'Без украшений', path: decorations[0]},
