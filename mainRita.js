@@ -24,82 +24,103 @@ function preloader() {
 preloader();
 
 //////////// ARRAYS //////////////////////////////////////
-const model_massive = [
-    {name: 'Рита без макияжа', path: model[0]}, 
-    {name: 'Рита c красными губами', path: model[1]},
-];
-const rita_hair_massive = [
-    {name: 'Белые',path: hair[0]},
-    {name: 'Блонд',path: hair[1]},
-    {name: 'Розовые',path: hair[2]},
-    {name: 'Пепельные',path: hair[3]},
-    {name: 'Две рогульки',path: hair[4]},
-    {name: 'Круэлла',path: hair[5]},
-    {name: 'Крупные кудри',path: hair[6]},
-    {name: 'Собранные волосы',path: hair[7]},
-    {name: 'Пышная коса',path: hair[8]},
-    {name: 'Длинная коса (белые)',path: hair[9]},
-    {name: 'Длинная коса (блонд)',path: hair[10]},
-    {name: 'Длинная коса (рыжие)',path: hair[11]},
-    {name: 'Длинная коса (темные)',path: hair[12]},
-    {name: 'Собранные (белые)',path: hair[13]},
-    {name: 'Собранные (рыжие)',path: hair[14]},
-    {name: 'Собранные (блонд)',path: hair[15]},
-    {name: 'Собранные (черные)',path: hair[16]},
-    {name: 'Прямые с челкой (белые)',path: hair[17]},
-    {name: 'Прямые с челкой (голубые)',path: hair[18]},
-    {name: 'Короткие уложенные',path: hair[19]},
-    {name: 'Кудри',path: hair[20]},
-    {name: 'Аккуратные',path: hair[21]},
-    {name: 'Бардо (pыжие)',path: hair[22]},
-    {name: 'Бардо (голубые)',path: hair[23]},
-    {name: 'Короткие с челкой',path: hair[24]},
-    {name: 'Шляпа с вуалью',path: hair[25]},
-    {name: 'Уложенные набок',path: hair[26]},
-    {name: 'Изящная шляпка',path: hair[27]},
-    {name: 'Жемчужный ободок',path: hair[28]},
-    {name: 'Собранные прямые',path: hair[29]},
-    {name: 'Низкий пучок',path: hair[30]},
-];
-const rita_clother_massive = [
-    {name: 'Сорочка',path: clother[0]},
-    {name: 'Простой',path: clother[1]},
-    {name: 'Элегантный',path: clother[2]},
-    {name: 'Глория',path: clother[3]},
-    {name: 'Пижама',path: clother[4]},
-    {name: 'Повседневная одежда',path: clother[5]},
-    {name: 'Классика',path: clother[6]},
-    {name: 'Классика (с пиджаком)',path: clother[7]},
-    {name: 'Звездная ночь',path: clother[8]},
-    {name: 'Звездная ночь (с пиджаком)',path: clother[9]},
-    {name: 'С накидкой',path: clother[10]},
-    {name: 'Без накидки (с пиджаком)',path: clother[11]},
-    {name: 'Нарцисс',path: clother[12]},
-    {name: 'Красное платье',path: clother[13]},
-    {name: 'Брюки с подтяжками',path: clother[14]},
-    {name: 'Бэтти',path: clother[15]},
-    {name: 'Нежная',path: clother[16]},
-    {name: 'Удобный костюм',path: clother[17]},
-    {name: 'Упертая',path: clother[18]},
-    {name: 'Осень',path: clother[19]},
-    {name: 'Платье без рукавов',path: clother[20]},
-    {name: 'Прекрасное платье',path: clother[21]},
-    {name: 'Воздушное платье',path: clother[22]},
-    {name: 'Летняя зима',path: clother[23]},
-    {name: 'Комфортный',path: clother[24]},
-    {name: 'Уверенная',path: clother[25]},
-    {name: 'Яркий',path: clother[26]},
-    {name: 'Воодушевление',path: clother[27]},
-    {name: 'Элеанора',path: clother[28]},
-    {name: 'Худи',path: clother[29]},
-    {name: 'Черное нижнее белье',path: clother[30]},
-];
-const rita_decorations_massive = [
-    {name: 'Без украшений', path: decorations[0]},
-    {name: 'Тату',path: decorations[1]},
-    {name: 'Голубые линзы',path: decorations[2]},
-    {name: 'Зеленые линзы', path: decorations[3]},
-];
+// const model_massive = [
+//     {name: 'Рита без макияжа', path: model[0]}, 
+//     {name: 'Рита c красными губами', path: model[1]},
+// ];
+
+const model_massive = model.map((path) => ({
+    name: 'Временный текст',
+    path,
+  }));
+
+const rita_hair_massive = hair.map((path) => ({
+name: 'Временный текст',
+path,
+}));
+
+const rita_clother_massive = clother.map((path) => ({
+    name: 'Временный текст',
+    path,
+    }));
+
+const rita_decorations_massive = decorations.map((path) => ({
+    name: 'Временный текст',
+    path,
+    }));
+
+// const rita_hair_massive = [
+//     {name: 'Белые',path: hair[0]},
+//     {name: 'Блонд',path: hair[1]},
+//     {name: 'Розовые',path: hair[2]},
+//     {name: 'Пепельные',path: hair[3]},
+//     {name: 'Две рогульки',path: hair[4]},
+//     {name: 'Круэлла',path: hair[5]},
+//     {name: 'Крупные кудри',path: hair[6]},
+//     {name: 'Собранные волосы',path: hair[7]},
+//     {name: 'Пышная коса',path: hair[8]},
+//     {name: 'Длинная коса (белые)',path: hair[9]},
+//     {name: 'Длинная коса (блонд)',path: hair[10]},
+//     {name: 'Длинная коса (рыжие)',path: hair[11]},
+//     {name: 'Длинная коса (темные)',path: hair[12]},
+//     {name: 'Собранные (белые)',path: hair[13]},
+//     {name: 'Собранные (рыжие)',path: hair[14]},
+//     {name: 'Собранные (блонд)',path: hair[15]},
+//     {name: 'Собранные (черные)',path: hair[16]},
+//     {name: 'Прямые с челкой (белые)',path: hair[17]},
+//     {name: 'Прямые с челкой (голубые)',path: hair[18]},
+//     {name: 'Короткие уложенные',path: hair[19]},
+//     {name: 'Кудри',path: hair[20]},
+//     {name: 'Аккуратные',path: hair[21]},
+//     {name: 'Бардо (pыжие)',path: hair[22]},
+//     {name: 'Бардо (голубые)',path: hair[23]},
+//     {name: 'Короткие с челкой',path: hair[24]},
+//     {name: 'Шляпа с вуалью',path: hair[25]},
+//     {name: 'Уложенные набок',path: hair[26]},
+//     {name: 'Изящная шляпка',path: hair[27]},
+//     {name: 'Жемчужный ободок',path: hair[28]},
+//     {name: 'Собранные прямые',path: hair[29]},
+//     {name: 'Низкий пучок',path: hair[30]},
+// ];
+// const rita_clother_massive = [
+//     {name: 'Сорочка',path: clother[0]},
+//     {name: 'Простой',path: clother[1]},
+//     {name: 'Элегантный',path: clother[2]},
+//     {name: 'Глория',path: clother[3]},
+//     {name: 'Пижама',path: clother[4]},
+//     {name: 'Повседневная одежда',path: clother[5]},
+//     {name: 'Классика',path: clother[6]},
+//     {name: 'Классика (с пиджаком)',path: clother[7]},
+//     {name: 'Звездная ночь',path: clother[8]},
+//     {name: 'Звездная ночь (с пиджаком)',path: clother[9]},
+//     {name: 'С накидкой',path: clother[10]},
+//     {name: 'Без накидки (с пиджаком)',path: clother[11]},
+//     {name: 'Нарцисс',path: clother[12]},
+//     {name: 'Красное платье',path: clother[13]},
+//     {name: 'Брюки с подтяжками',path: clother[14]},
+//     {name: 'Бэтти',path: clother[15]},
+//     {name: 'Нежная',path: clother[16]},
+//     {name: 'Удобный костюм',path: clother[17]},
+//     {name: 'Упертая',path: clother[18]},
+//     {name: 'Осень',path: clother[19]},
+//     {name: 'Платье без рукавов',path: clother[20]},
+//     {name: 'Прекрасное платье',path: clother[21]},
+//     {name: 'Воздушное платье',path: clother[22]},
+//     {name: 'Летняя зима',path: clother[23]},
+//     {name: 'Комфортный',path: clother[24]},
+//     {name: 'Уверенная',path: clother[25]},
+//     {name: 'Яркий',path: clother[26]},
+//     {name: 'Воодушевление',path: clother[27]},
+//     {name: 'Элеанора',path: clother[28]},
+//     {name: 'Худи',path: clother[29]},
+//     {name: 'Черное нижнее белье',path: clother[30]},
+// ];
+// const rita_decorations_massive = [
+//     {name: 'Без украшений', path: decorations[0]},
+//     {name: 'Тату',path: decorations[1]},
+//     {name: 'Голубые линзы',path: decorations[2]},
+//     {name: 'Зеленые линзы', path: decorations[3]},
+// ];
 
 // Инициализация итераторов
 const iteratorBody = new Iterator(model_massive);
